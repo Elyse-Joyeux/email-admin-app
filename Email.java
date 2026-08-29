@@ -15,7 +15,7 @@ public class Email{
     public Email(String firstName, String lastName){
         this.firstName = firstName;
         this.lastName = lastName;
-        System.out.println("Email Created: "+ this.firstName + " " + this.lastName);
+
 
         // call a method asking for the department and return the department
         this.department = setDepartment();
@@ -29,8 +29,9 @@ public class Email{
         // combine firstName and lastName to generate an email
         String depPrefix = department.isEmpty() ? "" : department + ".";
         email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + depPrefix + companySuffix; 
-        System.out.println("Your email is " + this.email);
     }
+
+    
     // ask the department
     private String setDepartment(){
         System.out.print("Department Choice\n1 for Sales\n2 for Development\n3 for Accounting\n0 for none\nEnter department code: ");
@@ -77,5 +78,11 @@ public class Email{
         return ("Your alternate email is " + alternateEmail);
      }
     public String getPassword() { return password; }
+
+    public String showInfo(){
+        return ("Display Name: " + firstName + " " + lastName + 
+               "\nCompany Email: " + email +
+               "\nMail Box Capacity: " + mailboxCapacity + "MB");
+    }
 
 }
