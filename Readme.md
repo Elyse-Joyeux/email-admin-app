@@ -1,6 +1,6 @@
 # Java Email Administration Application
 
-A Java-based console application designed to automate the process of creating email accounts for new employees. It handles department assignment, secure random password generation, mailbox capacity management, and alternate email configuration.
+A Java-based console application designed to automate the process of creating email accounts for new employees. It handles department assignment, secure random password generation, mailbox capacity management, alternate email configuration, and dynamic domain customization.
 
 ---
 
@@ -10,6 +10,7 @@ A Java-based console application designed to automate the process of creating em
 - **Department Selection**: Interactively assigns users to specific departments (`Sales`, `Development`, `Accounting`, or `None`).
 - **Random Password Generation**: Automatically creates a secure, randomized password of configurable length upon account creation.
 - **Encapsulated Setter Methods**: Allows updating:
+  - Company Suffix (automatically recalculates the user's primary email address)
   - Mailbox capacity
   - Alternate email address
   - Password
@@ -24,5 +25,5 @@ A Java-based console application designed to automate the process of creating em
 emailApp/
 │
 ├── Email.java       # Contains class variables, constructors, and core methods
-├── EmailApp.java    # Contains the main method to run and test the application
+├── EmailApp.java    # Contains the main method and interactive management menu
 └── README.md        # Project documentation
