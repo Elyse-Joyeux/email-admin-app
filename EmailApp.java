@@ -8,7 +8,6 @@ public class EmailApp {
         System.out.println("  WELCOME TO THE EMAIL MANAGEMENT SYSTEM  ");
         System.out.println("==========================================");
 
-
         System.out.print("Enter employee first name: ");
         String firstName = scanner.nextLine();
 
@@ -20,18 +19,18 @@ public class EmailApp {
 
         boolean running = true;
 
-        
         while (running) {
             System.out.println("\n--- MANAGEMENT OPTIONS ---");
             System.out.println("1. Show Employee Details");
             System.out.println("2. Change Password");
             System.out.println("3. Set Alternate Email");
             System.out.println("4. Change Mailbox Capacity");
-            System.out.println("5. Exit");
-            System.out.print("Select an option (1-5): ");
+            System.out.println("5. Change Company Suffix");
+            System.out.println("6. Exit");
+            System.out.print("Select an option (1-6): ");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // clear newline character from buffer
+            scanner.nextLine(); 
 
             switch (choice) {
                 case 1:
@@ -40,13 +39,11 @@ public class EmailApp {
                     System.out.println(emp1.getAlternateEmail());
                     break;
 
-                    
-
                 case 2:
                     System.out.print("Enter new password: ");
                     String newPassword = scanner.nextLine();
                     
-                    // Simple input validation check before calling the method
+                    // simple input validation check before calling the method
                     if (newPassword.length() < 6) {
                         System.out.println("ERROR: Password must be at least 6 characters!");
                     } else {
@@ -81,12 +78,24 @@ public class EmailApp {
                     break;
 
                 case 5:
+                    System.out.print("Enter new company suffix (e.g., company.com): ");
+                    String newSuffix = scanner.nextLine();
+
+                    if (!newSuffix.contains(".")) {
+                        System.out.println("ERROR: Invalid domain format! Example: company.com");
+                    } else {
+                        emp1.setCompanySuffix(newSuffix);
+                        System.out.println("SUCCESS: Company suffix updated to: " + emp1.getCompanySuffix());
+                    }
+                    break;
+
+                case 6:
                     System.out.println("Exiting Email Management System. Goodbye!");
                     running = false;
                     break;
 
                 default:
-                    System.out.println("Invalid selection. Please enter a number between 1 and 5.");
+                    System.out.println("Invalid selection. Please enter a number between 1 and 6.");
             }
         }
 

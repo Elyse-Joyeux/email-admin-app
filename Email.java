@@ -31,7 +31,7 @@ public class Email{
         email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + depPrefix + companySuffix; 
     }
 
-    
+
     // ask the department
     private String setDepartment(){
         System.out.print("Department Choice\n1 for Sales\n2 for Development\n3 for Accounting\n0 for none\nEnter department code: ");
@@ -67,6 +67,13 @@ public class Email{
         this.alternateEmail = altEmail; 
     }
 
+    // set company suffix
+    public void setCompanySuffix(String companySuffix) {
+    this.companySuffix = companySuffix;
+    String depPrefix = department.isEmpty() ? "" : department + ".";
+    this.email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + depPrefix + this.companySuffix;
+    }
+
 
     // change the password
     public void changePassword(String password){
@@ -78,6 +85,8 @@ public class Email{
         return ("Your alternate email is " + alternateEmail);
      }
     public String getPassword() { return password; }
+
+    public String getCompanySuffix() { return this.companySuffix; }
 
     public String showInfo(){
         return ("Display Name: " + firstName + " " + lastName + 
