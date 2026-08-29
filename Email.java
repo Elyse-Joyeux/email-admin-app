@@ -3,11 +3,13 @@ import java.util.Scanner;
 public class Email{
     private String firstName;
     private String lastName;
+    private String email;
     private String password;
     private int defaultPasswordLength = 10;
     private String department;
-    private int mailboxCapacity;
+    private int mailboxCapacity = 700;
     private String alternateEmail;
+    private String companySuffix = "elysecompany.com";
 
     // constructor to receive the first name and last name
     public Email(String firstName, String lastName){
@@ -23,6 +25,11 @@ public class Email{
         // call a method returning a random password
         this.password = randomPassword(defaultPasswordLength);
         System.out.println("Your password is: " + this.password);
+
+        // combine firstName and lastName to generate an email
+        String depPrefix = department.isEmpty() ? "" : department + ".";
+        email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + depPrefix + companySuffix; 
+        System.out.println("Your email is " + this.email);
     }
     // ask the department
     private String setDepartment(){
@@ -49,11 +56,26 @@ public class Email{
     }
 
     // set the mail box capacity
+    public void setMailBoxCapacity(int capacity){
+        this.mailboxCapacity = capacity;
+    }
+
 
     // set the alternate email
+    public void setAlternateEmail(String altEmail){
+        this.alternateEmail = altEmail; 
+    }
+
 
     // change the password
-    public static void main(String[] args){
-        
+    public void changePassword(String password){
+        this.password = password;
     }
+
+    public int getMailBoxCapacity() { return mailboxCapacity; }
+    public String getAlternateEmail(){
+        return ("Your alternate email is " + alternateEmail);
+     }
+    public String getPassword() { return password; }
+
 }
